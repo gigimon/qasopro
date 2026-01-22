@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Flaky tests: fix them, do not hide them | QA Audit and consulting</title>
+    <meta name="description" content="Flakes kill trust in automation. Here is how to eliminate them systematically." />
+    <link rel="canonical" href="http://localhost:1313/en/blog/flaky-tests-cure/" />
+    <meta property="og:site_name" content="QA Audit and consulting" />
+    <meta property="og:title" content="Flaky tests: fix them, do not hide them | QA Audit and consulting" />
+    <meta property="og:description" content="Flakes kill trust in automation. Here is how to eliminate them systematically." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://localhost:1313/en/blog/flaky-tests-cure/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&amp;fit=crop&amp;w=900&amp;q=80" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Flaky tests: fix them, do not hide them | QA Audit and consulting" />
+    <meta name="twitter:description" content="Flakes kill trust in automation. Here is how to eliminate them systematically." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&amp;fit=crop&amp;w=900&amp;q=80" />
+    <link rel="alternate" hreflang="ru" href="http://localhost:1313/blog/flaky-tests-cure/" />
+    <link rel="alternate" hreflang="en" href="http://localhost:1313/en/blog/flaky-tests-cure/" />
+    <link rel="alternate" hreflang="x-default" href="http://localhost:1313/en/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=Geist:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Shantell+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+<nav class="navbar" aria-label="Main navigation">
+  <a href="/en/" class="nav-logo" aria-label="Home">
+    Oleg Sukharev
+  </a>
+  <div class="nav-links">
+    <a href="/en/consulting" class="nav-item">Consulting</a>
+    <a href="/en/audit" class="nav-item">Audit</a>
+    <a href="/en/mentorship" class="nav-item">Mentorship</a>
+    <a href="/en/recruitment" class="nav-item">Hiring Support</a>
+    <a href="/en/blog" class="nav-item active">Blog</a>
+    <a href="/en/contacts" class="nav-item">Contacts</a>
+  </div>
+  <div class="nav-actions">
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+      
+      
+        
+        
+        
+        
+        
+        
+          
+        
+          
+        
+        <a class="lang-link" href="/blog/flaky-tests-cure/">RU</a>
+      
+        
+        
+        
+        
+        
+        
+          
+        
+          
+        
+        <a class="lang-link active" href="/en/blog/flaky-tests-cure/">EN</a>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+  
+  
+
+<header class="article-header">
+  <div class="container-narrow">
+    <div class="article-header-meta">
+      
+        <span class="article-tag">Reliability</span>
+        <span class="article-meta-separator">•</span>
+      
+      <span>January 30, 2024</span>
+      <span class="article-meta-separator">•</span>
+      <span>1 min read</span>
+    </div>
+    <h1 class="article-title">Flaky tests: fix them, do not hide them</h1>
+    <p class="article-lead">
+      Flakes kill trust in automation. Here is how to eliminate them systematically.
+    </p>
+  </div>
+</header>
+
+<main class="section-padding section-padding-article">
+  <div class="container-narrow">
+    <a href="/en/blog" class="back-link">
+      <span class="back-link-icon">
+        <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+      </span>
+      Back to all posts
+    </a>
+
+    <article class="article-body">
+      <p>Flaky tests are more than annoyance. They tax the team and destroy confidence in automation.</p>
+<p>Do not hide flakes with retries. Fix the root cause.</p>
+<h2 id="common-sources">Common sources</h2>
+<ul>
+<li>UI races and weak waits.</li>
+<li>Network delays and third-party services.</li>
+<li>Shared state between tests.</li>
+</ul>
+<h2 id="a-practical-cure">A practical cure</h2>
+<ol>
+<li>Add a flaky label and a separate backlog.</li>
+<li>Collect diagnostics: video, logs, screenshots.</li>
+<li>Remove time dependencies and use explicit conditions.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>A stable test beats a fast test. Invest in the health of your framework.</p>
+    </article>
+  </div>
+</main>
+  
+<footer class="footer-minimal">
+    <div class="container footer-inner">
+        <div class="footer-middle footer-middle-start">
+            <div class="footer-copy">© 2025 Oleg Sukharev. All rights reserved.</div>
+        </div>
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/oleg-suharev-41193644/" aria-label="LinkedIn">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:linkedin"></iconify-icon>
+                </div>
+            </a>
+            <a href="https://t.me/gigimon4ik" aria-label="Telegram">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:send"></iconify-icon>
+                </div>
+            </a>
+            <a href="mailto:gigimon4ik@gmail.com" aria-label="Email">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:mail"></iconify-icon>
+                </div>
+            </a>
+            <a href="https://cal.com/олег-сухарев-7syd7i" aria-label="Book a call">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:calendar-clock"></iconify-icon>
+                </div>
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+  </body>
+</html>

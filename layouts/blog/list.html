@@ -1,0 +1,81 @@
+{{ define "main" }}
+{{ partial "nav.html" (dict "context" .) }}
+{{ $isEn := eq .Lang "en" }}
+{{ $subtitle := .Params.subtitle }}
+{{ $readMore := "Читать далее" }}
+{{ $readingLabel := "мин чтения" }}
+{{ $defaultSubtitle := "Заметки о качестве ПО, автоматизации тестирования и управлении процессами разработки." }}
+{{ if $isEn }}
+  {{ $readMore = "Read more" }}
+  {{ $readingLabel = "min read" }}
+  {{ $defaultSubtitle = "Notes on software quality, test automation, and delivery processes." }}
+{{ end }}
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="page-subtitle">
+      {{- if $subtitle -}}
+        {{ $subtitle }}
+      {{- else -}}
+        {{ $defaultSubtitle }}
+      {{- end -}}
+    </p>
+  </div>
+</header>
+
+<main class="section-padding section-padding-blog">
+  <div class="container-narrow container-narrow-lg">
+    {{ $paginator := .Paginate .RegularPages }}
+    <div class="blog-list">
+      {{ range $paginator.Pages }}
+        {{ $post := . }}
+        {{ $dateLabel := .Date.Format "02.01.2006" }}
+        {{ with .Params.dateLabel }}{{ $dateLabel = . }}{{ end }}
+        <article class="blog-item">
+          <a class="blog-image" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+            {{ with $post.Params.image }}
+              <img src="{{ . }}" alt="{{ $post.Title }}" loading="lazy" />
+            {{ else }}
+              <div class="blog-image-placeholder"></div>
+            {{ end }}
+          </a>
+          <div class="blog-content">
+            <time class="blog-date">{{ $dateLabel }}</time>
+            <div class="blog-meta">
+              {{ with .Params.category }}
+                <span class="blog-category">{{ . }}</span>
+                <span class="blog-meta-separator"></span>
+              {{ end }}
+              <span class="blog-reading-time">{{ .ReadingTime }} {{ $readingLabel }}</span>
+            </div>
+            <h2 class="blog-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            <p class="blog-excerpt">{{ .Summary | plainify }}</p>
+            <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">{{ $readMore }}</a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+
+    {{ if gt $paginator.TotalPages 1 }}
+      <div class="pagination">
+        <a class="page-link{{ if not $paginator.HasPrev }} disabled{{ end }}" href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL }}{{ else }}#{{ end }}">
+          <span class="page-link-icon">
+            <iconify-icon icon="lucide:chevron-left"></iconify-icon>
+          </span>
+        </a>
+        {{ range $paginator.Pagers }}
+          <a class="page-link{{ if eq . $paginator }} active{{ end }}" href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ end }}
+        <a class="page-link{{ if not $paginator.HasNext }} disabled{{ end }}" href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL }}{{ else }}#{{ end }}">
+          <span class="page-link-icon">
+            <iconify-icon icon="lucide:chevron-right"></iconify-icon>
+          </span>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

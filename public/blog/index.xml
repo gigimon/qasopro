@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Блог on QA Аудит и консультирование</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Блог on QA Аудит и консультирование</description>
+    <generator>Hugo</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 10 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Управление тестовыми данными: быстро и безопасно</title>
+      <link>http://localhost:1313/blog/test-data-management/</link>
+      <pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/test-data-management/</guid>
+      <description>&lt;p&gt;Тестовые данные — основа стабильных проверок. Если данные живут «как получится», тесты начинают падать без причины.&lt;/p&gt;&#xA;&lt;p&gt;Лучший подход — воспроизводимость и прозрачность: всегда понятно, откуда данные и кто их менял.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

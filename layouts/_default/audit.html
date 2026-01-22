@@ -1,0 +1,122 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ partial "nav.html" (dict "context" .) }}
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ if $isEn }}QA Process Audit{{ else }}Аудит QA Процессов{{ end }}</h1>
+    <p class="page-subtitle">
+      {{ if $isEn }}
+        Independent assessment of your testing system to uncover hidden issues, optimize budget, and improve product quality.
+      {{ else }}
+        Независимая оценка вашей системы тестирования для поиска скрытых проблем, оптимизации бюджета и повышения качества продукта.
+      {{ end }}
+    </p>
+  </div>
+</header>
+
+<main class="section-padding">
+  <div class="container-narrow">
+    <div class="content-block">
+      <h2>{{ if $isEn }}An outside perspective{{ else }}Взгляд со стороны{{ end }}</h2>
+      <p>
+        {{ if $isEn }}
+          Internal teams often get used to inefficient processes ("we always did it this way"). This leads to technical debt, slower time-to-market, and burnout.
+        {{ else }}
+          Часто внутренние команды замыливают взгляд и привыкают к неэффективным процессам («мы всегда так делали»). Это приводит к накоплению технического долга, замедлению Time-to-Market и выгоранию сотрудников.
+        {{ end }}
+      </p>
+      <p>
+        {{ if $isEn }}
+          I run a comprehensive audit that shows the real picture. The result is not just a list of issues, but a step-by-step roadmap for improvement.
+        {{ else }}
+          Я провожу комплексный аудит, который показывает реальное положение дел. Результат аудита — не просто список ошибок, а пошаговый план действий (Roadmap) по их устранению и развитию отдела.
+        {{ end }}
+      </p>
+    </div>
+
+    <div class="content-block">
+      <h2>{{ if $isEn }}What I review{{ else }}Что я анализирую{{ end }}</h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:search-check"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}Processes and methodology{{ else }}Процессы и методологии{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                How tasks are defined, how test cases are written, when testing starts, and how releases happen.
+              {{ else }}
+                Как ставятся задачи, как пишутся тест-кейсы, когда начинается тестирование, как происходит передача в релиз.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:users"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}Team and skills{{ else }}Команда и компетенции{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                Skill assessment (hard and soft), role distribution, and collaboration with engineering.
+              {{ else }}
+                Оценка навыков сотрудников (Hard &amp; Soft Skills), распределение ролей, эффективность коммуникации с разработкой.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:wrench"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}Tools and infrastructure{{ else }}Инструменты и инфраструктура{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                How well TMS, bug trackers, CI/CD, environments, and automation tools are used.
+              {{ else }}
+                Эффективность использования TMS, баг-трекеров, CI/CD, тестовых сред и инструментов автоматизации.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:file-text"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}Artifacts and metrics{{ else }}Артефакты и метрики{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                Quality of documentation, test coverage, and metrics (DRE, time to test, etc.).
+              {{ else }}
+                Качество тестовой документации, покрытие тестами, наличие и корректность метрик качества (DRE, Time to Test и др.).
+              {{ end }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>{{ if $isEn }}Want to find your team's growth points?{{ else }}Хотите узнать точки роста вашей команды?{{ end }}</h3>
+      <p>
+        {{ if $isEn }}
+          Leave a request for a preliminary audit discussion. Confidentiality guaranteed.
+        {{ else }}
+          Оставьте заявку на предварительное обсуждение аудита. Конфиденциальность гарантирую.
+        {{ end }}
+      </p>
+      <a href="https://cal.com/олег-сухарев-7syd7i" class="btn btn-primary">
+        {{ if $isEn }}Discuss an audit{{ else }}Обсудить аудит{{ end }}
+      </a>
+    </div>
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

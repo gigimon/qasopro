@@ -1,0 +1,151 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ partial "nav.html" (dict "context" . "variant" "light") }}
+<main class="section-padding-xl">
+  <div class="container">
+    <h1 class="contact-title">{{ if $isEn }}Get in touch{{ else }}Связаться со мной{{ end }}</h1>
+    <p class="contact-subtitle">
+      {{ if $isEn }}
+        Open to consulting, process audits, and training programs.
+      {{ else }}
+        Открыт к предложениям по консалтингу, аудиту процессов и обучающим программам.
+      {{ end }}
+    </p>
+
+    <div class="contact-list">
+      <a href="https://www.linkedin.com/in/oleg-suharev-41193644/" class="contact-card">
+        <div class="card-icon">
+          <iconify-icon icon="lucide:linkedin"></iconify-icon>
+        </div>
+        <div class="card-title">LinkedIn</div>
+        <div class="card-desc">
+          {{ if $isEn }}Professional profile and work history{{ else }}Профессиональный профиль и история работы{{ end }}
+        </div>
+      </a>
+
+      <a href="https://t.me/gigimon4ik" class="contact-card">
+        <div class="card-icon">
+          <iconify-icon icon="lucide:send"></iconify-icon>
+        </div>
+        <div class="card-title">{{ if $isEn }}Telegram{{ else }}Telegram{{ end }}</div>
+        <div class="card-desc">
+          {{ if $isEn }}Fast communication for work topics{{ else }}Быстрая связь по рабочим вопросам{{ end }}
+        </div>
+      </a>
+
+      <a href="mailto:gigimon4ik@gmail.com" class="contact-card">
+        <div class="card-icon">
+          <iconify-icon icon="lucide:mail"></iconify-icon>
+        </div>
+        <div class="card-title">Email</div>
+          <div class="card-desc">
+            {{ if $isEn }}
+              gigimon4ik@gmail.com - for official inquiries, collaboration proposals, and feedback.
+            {{ else }}
+              gigimon4ik@gmail.com — для официальных запросов, предложений по сотрудничеству и обратной связи.
+            {{ end }}
+          </div>
+      </a>
+
+      <a href="https://t.me/rude_sdet" class="contact-card">
+        <div class="card-icon">
+          <iconify-icon icon="lucide:newspaper"></iconify-icon>
+        </div>
+        <div class="card-title">{{ if $isEn }}Telegram Blog{{ else }}Telegram Блог{{ end }}</div>
+        <div class="card-desc">
+          {{ if $isEn }}News, notes, and article announcements{{ else }}Новости, заметки и анонсы статей{{ end }}
+        </div>
+      </a>
+
+      <a href="https://github.com/gigimon" class="contact-card">
+        <div class="card-icon">
+          <iconify-icon icon="lucide:github"></iconify-icon>
+        </div>
+        <div class="card-title">Github</div>
+        <div class="card-desc">
+          {{ if $isEn }}My open repositories{{ else }}Мои открытые репозитории{{ end }}
+        </div>
+      </a>
+
+      <a href="https://hh.ru/resume/c8333581ff00d40d820039ed1f305735775047" class="contact-card">
+        <div class="card-icon">
+          <iconify-icon icon="lucide:briefcase"></iconify-icon>
+        </div>
+        <div class="card-title">HeadHunter</div>
+        <div class="card-desc">
+          {{ if $isEn }}Resume and detailed experience{{ else }}Резюме и опыт работы в деталях{{ end }}
+        </div>
+      </a>
+    </div>
+
+    <div class="calendly-section">
+      <div class="calendly-icon">
+        <iconify-icon icon="lucide:calendar"></iconify-icon>
+      </div>
+      <h2 class="calendly-title">{{ if $isEn }}Book a call{{ else }}Забронировать звонок{{ end }}</h2>
+      <p class="calendly-text">
+        {{ if $isEn }}
+          Pick a convenient time for a 30-minute intro call to discuss your needs and define the collaboration format.
+        {{ else }}
+          Выберите удобное время для 30-минутного знакомства, где мы обсудим ваши задачи и определим формат сотрудничества.
+        {{ end }}
+      </p>
+      <a href="https://cal.com/олег-сухарев-7syd7i" class="submit-btn submit-btn-inline">{{ if $isEn }}Book a call{{ else }}Забронировать звонок{{ end }}</a>
+    </div>
+
+    <form
+      class="container-narrow container-narrow-sm form-section contact-form"
+      data-emailjs-form
+      data-service-id="service_22xxevk"
+      data-template-id="template_sickq6y"
+      data-public-key="sFMYUgTro7duiM2R5"
+      data-loading-text="{{ if $isEn }}Sending...{{ else }}Отправка...{{ end }}"
+      data-success-text="{{ if $isEn }}Message sent successfully.{{ else }}Сообщение отправлено.{{ end }}"
+      data-error-text="{{ if $isEn }}Failed to send message. Please try again.{{ else }}Не удалось отправить сообщение. Попробуйте еще раз.{{ end }}"
+    >
+      <h2 class="form-title">{{ if $isEn }}Send me a message{{ else }}Напишите мне{{ end }}</h2>
+      <div class="form-group">
+        <label class="form-label" for="contact-name">{{ if $isEn }}Your name{{ else }}Ваше имя{{ end }}</label>
+        <input
+          class="contact-input"
+          id="contact-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          placeholder="{{ if $isEn }}Alexey{{ else }}Алексей{{ end }}"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="contact-email">{{ if $isEn }}Contact email{{ else }}Email для связи{{ end }}</label>
+        <input
+          class="contact-input"
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="alexey@example.com"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="contact-message">{{ if $isEn }}Message{{ else }}Сообщение{{ end }}</label>
+        <textarea
+          class="contact-textarea"
+          id="contact-message"
+          name="message"
+          placeholder="{{ if $isEn }}Tell me about your project...{{ else }}Расскажите немного о вашем проекте...{{ end }}"
+          required
+        ></textarea>
+      </div>
+      <button class="submit-btn" type="submit" data-form-submit>
+        {{ if $isEn }}Send message{{ else }}Отправить сообщение{{ end }}
+      </button>
+      <div class="form-note" data-form-status></div>
+    </form>
+  </div>
+</main>
+{{ partial "footer.html" . }}
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+<script src="{{ "js/contact.js" | relURL }}" defer></script>
+{{ end }}

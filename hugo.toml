@@ -1,0 +1,25 @@
+baseURL = 'https://qaso.pro'
+languageCode = 'ru-ru'
+title = 'QA Consultant Portfolio'
+defaultContentLanguage = 'ru'
+defaultContentLanguageInSubdir = false
+
+[pagination]
+  pagerSize = 6
+  path = 'page'
+
+[languages]
+  [languages.ru]
+    languageCode = 'ru-ru'
+    languageName = 'RU'
+    weight = 1
+    title = 'QA Аудит и консультирование'
+    [languages.ru.params]
+      description = 'QA-консультант. Помогаю бизнесу сокращать time-to-market и повышать надежность продуктов через выстраивание процессов тестирования.'
+  [languages.en]
+    languageCode = 'en-us'
+    languageName = 'EN'
+    weight = 2
+    title = 'QA Audit and consulting'
+    [languages.en.params]
+      description = 'QA consultant helping businesses reduce time-to-market and improve product reliability through effective testing processes.'

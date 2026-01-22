@@ -1,0 +1,183 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ $heroTitle := "Про качество просто и по делу" }}
+{{ $heroText := "Привет, я - Олег Сухарев, QA/SDET с 15+ лет опыта в сфере и готов поделиться своими навыками и помочь в решении проблем качества" }}
+{{ $ctaContact := "Связаться со мной" }}
+{{ $ctaBlog := "Читать блог" }}
+{{ $servicesTitle := "Как я могу помочь" }}
+{{ $servicesText := "Мой опыт позволяет решать задачи любого масштаба — от стартапов до больших и сложных проектов." }}
+{{ $serviceConsultingTitle := "Консультирование" }}
+{{ $serviceConsultingText := "Разработка стратегии тестирования, выбор технологического стека, построение фундамента и оценка рисков на ранних этапах разработки." }}
+{{ $serviceAuditTitle := "Аудит процессов" }}
+{{ $serviceAuditText := "Независимая оценка текущего состояния QA в компании, выявление боттлнеков и составление roadmap улучшений с индивидуальным подходом к каждой компании." }}
+{{ $serviceMentorshipTitle := "Менторство" }}
+{{ $serviceMentorshipText := "Персональное обучение QA специалистов, помощь в построении эффективных команд." }}
+{{ $serviceRecruitmentTitle := "Помощь в найме" }}
+{{ $serviceRecruitmentText := "Помогаю нанять QA специалистов любого уровня; построить команду отличных тестировщиков." }}
+{{ $blogTitle := "Последние публикации" }}
+{{ $blogAll := "Все статьи →" }}
+{{ $readMore := "Читать далее" }}
+{{ if $isEn }}
+  {{ $heroTitle = "Quality, clear and practical" }}
+  {{ $heroText = "Hello, I'm Oleg Sukharev, a QA/SDET with 15+ years of experience in the field, and I'm ready to share my skills and help solve quality issues." }}
+  {{ $ctaContact = "Contact me" }}
+  {{ $ctaBlog = "Read the blog" }}
+  {{ $servicesTitle = "How I can help" }}
+  {{ $servicesText = "My experience covers tasks of any scale, from startups to enterprise projects." }}
+  {{ $serviceConsultingTitle = "Consulting" }}
+  {{ $serviceConsultingText = "Development of a testing strategy, selection of the technology stack, building the foundation, and risk assessment in the early stages of development." }}
+  {{ $serviceAuditTitle = "Process audit" }}
+  {{ $serviceAuditText = "Independent assessment of the current QA state in the company, identification of bottlenecks, and creation of an improvement roadmap with an individual approach to each company." }}
+  {{ $serviceMentorshipTitle = "Mentorship" }}
+  {{ $serviceMentorshipText = "Personalized training for QA specialists, assistance in building effective teams." }}
+  {{ $serviceRecruitmentTitle = "Hiring support" }}
+  {{ $serviceRecruitmentText = "I help hire QA specialists of any level; build a team of excellent testers." }}
+  {{ $blogTitle = "Latest posts" }}
+  {{ $blogAll = "All posts →" }}
+  {{ $readMore = "Read more" }}
+{{ end }}
+{{ partial "nav.html" (dict "context" .) }}
+<main>
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1>{{ $heroTitle }}</h1>
+          <p>
+            {{ $heroText }}
+          </p>
+          <div class="hero-actions">
+            <a href="{{ "contacts" | relLangURL }}" class="btn btn-white">
+              {{ $ctaContact }}
+            </a>
+            <a href="{{ "blog" | relLangURL }}" class="btn btn-outline-light">
+              {{ $ctaBlog }}
+            </a>
+          </div>
+
+          <div class="social-bar">
+            <a class="social-link" href="https://www.linkedin.com/in/oleg-suharev-41193644/">
+              <iconify-icon icon="lucide:linkedin"></iconify-icon>
+              <span>LinkedIn</span>
+            </a>
+            <a class="social-link" href="https://t.me/gigimon4ik">
+              <iconify-icon icon="lucide:send"></iconify-icon>
+              <span>Telegram</span>
+            </a>
+            <a class="social-link" href="mailto:gigimon4ik@gmail.com">
+              <iconify-icon icon="lucide:mail"></iconify-icon>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-container">
+          <img
+            src="https://storage.googleapis.com/banani-avatars/avatar%2Fmale%2F35-50%2FEuropean%2F3"
+            alt="Aleksey Smirnov"
+            class="hero-image"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="services-wrapper">
+        <div class="sticky-header">
+          <h2>{{ $servicesTitle }}</h2>
+          <p>
+            {{ $servicesText }}
+          </p>
+        </div>
+        <div class="service-list">
+          <a class="service-item" href="{{ "consulting" | relLangURL }}">
+            <div class="service-icon-box">
+              <iconify-icon icon="lucide:message-square"></iconify-icon>
+            </div>
+            <div class="service-info">
+              <h3>{{ $serviceConsultingTitle }}</h3>
+              <p>
+                {{ $serviceConsultingText }}
+              </p>
+            </div>
+          </a>
+
+          <a class="service-item" href="{{ "audit" | relLangURL }}">
+            <div class="service-icon-box">
+              <iconify-icon icon="lucide:search"></iconify-icon>
+            </div>
+            <div class="service-info">
+              <h3>{{ $serviceAuditTitle }}</h3>
+              <p>
+                {{ $serviceAuditText }}
+              </p>
+            </div>
+          </a>
+
+          <a class="service-item" href="{{ "mentorship" | relLangURL }}">
+            <div class="service-icon-box">
+              <iconify-icon icon="lucide:users"></iconify-icon>
+            </div>
+            <div class="service-info">
+              <h3>{{ $serviceMentorshipTitle }}</h3>
+              <p>
+                {{ $serviceMentorshipText }}
+              </p>
+            </div>
+          </a>
+
+          <a class="service-item" href="{{ "recruitment" | relLangURL }}">
+            <div class="service-icon-box">
+              <iconify-icon icon="lucide:user-plus"></iconify-icon>
+            </div>
+            <div class="service-info">
+              <h3>{{ $serviceRecruitmentTitle }}</h3>
+              <p>
+                {{ $serviceRecruitmentText }}
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding section-padding-tight">
+    <div class="container">
+      <div class="blog-header">
+        <h2>{{ $blogTitle }}</h2>
+        <a href="{{ "blog" | relLangURL }}" class="blog-link">{{ $blogAll }}</a>
+      </div>
+      <div class="articles-grid">
+        {{ $posts := first 2 (sort (where .Site.RegularPages "Section" "blog") "Date" "desc") }}
+        {{ range $posts }}
+          {{ $post := . }}
+          {{ $dateLabel := .Date.Format "02.01.2006" }}
+          {{ with .Params.dateLabel }}{{ $dateLabel = . }}{{ end }}
+          <article class="article-card">
+            {{ with $post.Params.image }}
+              <img src="{{ . }}" class="article-thumb" alt="{{ $post.Title }}" loading="lazy" />
+            {{ else }}
+              <div class="article-thumb"></div>
+            {{ end }}
+            <div class="article-content">
+              <div class="article-meta-row">
+                {{ with .Params.category }}<span class="article-meta">{{ . }}</span>{{ end }}
+                <span class="article-date">{{ $dateLabel }}</span>
+              </div>
+              <h3>{{ .Title }}</h3>
+              <p>{{ .Summary | plainify }}</p>
+              <div class="article-cta">
+                <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">{{ $readMore }}</a>
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

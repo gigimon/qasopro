@@ -1,0 +1,122 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ partial "nav.html" (dict "context" .) }}
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ if $isEn }}Mentorship and Training{{ else }}Менторство и Обучение{{ end }}</h1>
+    <p class="page-subtitle">
+      {{ if $isEn }}
+        Personal hard-skill development for QA specialists. I help you master automation, advanced tools, and grow to Senior level.
+      {{ else }}
+        Персональное развитие hard-skills для QA специалистов. Помогаю освоить автоматизацию, сложные инструменты и вырасти до уровня Senior.
+      {{ end }}
+    </p>
+  </div>
+</header>
+
+<main class="section-padding">
+  <div class="container-narrow">
+    <div class="content-block">
+      <h2>{{ if $isEn }}Faster professional growth{{ else }}Быстрый профессиональный рост{{ end }}</h2>
+      <p>
+        {{ if $isEn }}
+          Mentorship is the most effective way to shorten the path from a beginner to a confident specialist. Instead of chaotic searching, you get a structured program built on real tasks and continuous feedback.
+        {{ else }}
+          Менторство — это самый эффективный способ сократить путь от новичка до уверенного специалиста. Вместо хаотичного поиска информации в интернете вы получаете структурированную программу, основанную на реальных задачах, и постоянную обратную связь от эксперта.
+        {{ end }}
+      </p>
+      <p>
+        {{ if $isEn }}
+          I work one-on-one and adapt to your current level and goals, whether it is your first job, a move into automation, or a promotion.
+        {{ else }}
+          Я работаю индивидуально, подстраиваясь под ваш текущий уровень и цели — будь то первое трудоустройство, переход в автоматизацию или повышение грейда.
+        {{ end }}
+      </p>
+    </div>
+
+    <div class="content-block">
+      <h2>{{ if $isEn }}What I help with{{ else }}С чем я помогаю{{ end }}</h2>
+      <div class="feature-list feature-list-loose">
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:code-2"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>{{ if $isEn }}Automation fundamentals{{ else }}Основы автоматизированного тестирования{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                Programming basics (JS/TS/Python), design patterns (Page Object, Screenplay), and test architecture.
+              {{ else }}
+                Постановка базы программирования (JS/TS/Python), понимание паттернов проектирования (PageObject, Screenplay) и архитектуры тестов.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:play-circle"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>Playwright</strong>
+            <span>
+              {{ if $isEn }}
+                Deep dive into a modern E2E tool. Environment setup, locators, async handling, and debugging.
+              {{ else }}
+                Глубокое погружение в современный инструмент E2E тестирования. Настройка окружения, работа с локаторами, обработка асинхронности и отладка.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:server"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>{{ if $isEn }}API testing{{ else }}Тестирование API{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                REST and SOAP, advanced Postman/Insomnia usage, API automation, and data mocking.
+              {{ else }}
+                Работа с REST и SOAP, использование Postman/Insomnia на продвинутом уровне, написание автотестов для API, мокирование данных.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:hammer"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>{{ if $isEn }}Effective tooling{{ else }}Эффективное использование инструментов{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                CI/CD pipelines, Docker, Allure Reports, and integrating tests into delivery.
+              {{ else }}
+                Настройка CI/CD пайплайнов, работа с Docker, Allure Reports и интеграция тестов в процесс разработки.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>{{ if $isEn }}Ready to level up your skills?{{ else }}Готовы прокачать свои навыки?{{ end }}</h3>
+      <p>
+        {{ if $isEn }}
+          Message me to discuss your current level and create a growth plan.
+        {{ else }}
+          Напишите мне, чтобы обсудить ваш текущий уровень и составить план развития.
+        {{ end }}
+      </p>
+      <a href="https://cal.com/олег-сухарев-7syd7i" class="btn btn-primary">
+        {{ if $isEn }}Start mentorship{{ else }}Записаться на менторство{{ end }}
+      </a>
+    </div>
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

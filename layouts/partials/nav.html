@@ -1,0 +1,63 @@
+{{ $ctx := .context }}
+{{ $variant := "" }}
+{{ with .variant }}{{ $variant = . }}{{ end }}
+{{ $current := $ctx.RelPermalink }}
+{{ $consulting := "consulting" | relLangURL }}
+{{ $audit := "audit" | relLangURL }}
+{{ $mentorship := "mentorship" | relLangURL }}
+{{ $recruitment := "recruitment" | relLangURL }}
+{{ $blog := "blog" | relLangURL }}
+{{ $contacts := "contacts" | relLangURL }}
+{{ $isBlog := hasPrefix $current $blog }}
+{{ $isEn := eq $ctx.Lang "en" }}
+{{ $navLabel := "Главная навигация" }}
+{{ $homeLabel := "Главная" }}
+{{ $logoText := "Олег Сухарев" }}
+{{ $labelConsulting := "Консультирование" }}
+{{ $labelAudit := "Аудит" }}
+{{ $labelMentorship := "Менторство" }}
+{{ $labelRecruitment := "Помощь в найме" }}
+{{ $labelBlog := "Блог" }}
+{{ $labelContacts := "Контакты" }}
+{{ $langLabel := "Переключатель языка" }}
+{{ if $isEn }}
+  {{ $navLabel = "Main navigation" }}
+  {{ $homeLabel = "Home" }}
+  {{ $logoText = "Oleg Sukharev" }}
+  {{ $labelConsulting = "Consulting" }}
+  {{ $labelAudit = "Audit" }}
+  {{ $labelMentorship = "Mentorship" }}
+  {{ $labelRecruitment = "Hiring Support" }}
+  {{ $labelBlog = "Blog" }}
+  {{ $labelContacts = "Contacts" }}
+  {{ $langLabel = "Language switcher" }}
+{{ end }}
+<nav class="navbar{{ if eq $variant "light" }} navbar-light{{ end }}" aria-label="{{ $navLabel }}">
+  <a href="{{ "/" | relLangURL }}" class="nav-logo" aria-label="{{ $homeLabel }}">
+    {{ $logoText }}
+  </a>
+  <div class="nav-links">
+    <a href="{{ $consulting }}" class="nav-item{{ if eq $current $consulting }} active{{ end }}">{{ $labelConsulting }}</a>
+    <a href="{{ $audit }}" class="nav-item{{ if eq $current $audit }} active{{ end }}">{{ $labelAudit }}</a>
+    <a href="{{ $mentorship }}" class="nav-item{{ if eq $current $mentorship }} active{{ end }}">{{ $labelMentorship }}</a>
+    <a href="{{ $recruitment }}" class="nav-item{{ if eq $current $recruitment }} active{{ end }}">{{ $labelRecruitment }}</a>
+    <a href="{{ $blog }}" class="nav-item{{ if $isBlog }} active{{ end }}">{{ $labelBlog }}</a>
+    <a href="{{ $contacts }}" class="nav-item{{ if eq $current $contacts }} active{{ end }}">{{ $labelContacts }}</a>
+  </div>
+  <div class="nav-actions">
+    <div class="lang-switcher" role="group" aria-label="{{ $langLabel }}">
+      {{ $translations := $ctx.AllTranslations }}
+      {{ range site.Languages }}
+        {{ $lang := .Lang }}
+        {{ $label := .LanguageName }}
+        {{ $target := "" }}
+        {{ $langSite := index (where site.Sites "Language.Lang" $lang) 0 }}
+        {{ if $langSite }}{{ $target = $langSite.Home.RelPermalink }}{{ end }}
+        {{ range $translations }}
+          {{ if eq .Lang $lang }}{{ $target = .RelPermalink }}{{ end }}
+        {{ end }}
+        <a class="lang-link{{ if eq $ctx.Lang $lang }} active{{ end }}" href="{{ $target }}">{{ $label }}</a>
+      {{ end }}
+    </div>
+  </div>
+</nav>

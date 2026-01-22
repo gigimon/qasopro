@@ -1,0 +1,34 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ $subtitle := "Подборки по темам и категориям." }}
+{{ $emptyText := "Здесь пока нет категорий." }}
+{{ if $isEn }}
+  {{ $subtitle = "Browse topics and categories." }}
+  {{ $emptyText = "No categories yet." }}
+{{ end }}
+{{ partial "nav.html" (dict "context" .) }}
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="page-subtitle">{{ $subtitle }}</p>
+  </div>
+</header>
+
+<main class="section-padding">
+  <div class="container-narrow container-narrow-lg">
+    {{ if .Data.Terms }}
+      <div class="taxonomy-list">
+        {{ range .Data.Terms.Alphabetical }}
+          <a class="taxonomy-item" href="{{ .Page.RelPermalink }}">
+            <span class="taxonomy-name">{{ .Page.Title }}</span>
+            <span class="taxonomy-count">{{ .Count }}</span>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="taxonomy-empty">{{ $emptyText }}</p>
+    {{ end }}
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

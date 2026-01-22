@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ $backLabel := "Назад к категориям" }}
+{{ $emptyText := "Здесь пока нет материалов." }}
+{{ $readMore := "Читать далее" }}
+{{ if $isEn }}
+  {{ $backLabel = "Back to categories" }}
+  {{ $emptyText = "No posts yet." }}
+  {{ $readMore = "Read more" }}
+{{ end }}
+{{ partial "nav.html" (dict "context" .) }}
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="page-subtitle">{{ if $isEn }}Posts in this category{{ else }}Материалы по этой категории{{ end }}</p>
+  </div>
+</header>
+
+<main class="section-padding">
+  <div class="container-narrow container-narrow-lg">
+    <a href="{{ .Data.Plural | relLangURL }}" class="back-link">
+      <span class="back-link-icon">
+        <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+      </span>
+      {{ $backLabel }}
+    </a>
+
+    {{ if .Pages }}
+      <div class="taxonomy-posts">
+        {{ range .Pages }}
+          {{ $dateLabel := .Date.Format "02.01.2006" }}
+          {{ with .Params.dateLabel }}{{ $dateLabel = . }}{{ end }}
+          <article class="taxonomy-post">
+            <time class="blog-date">{{ $dateLabel }}</time>
+            <h2 class="taxonomy-post-title">
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h2>
+            <p class="taxonomy-post-excerpt">{{ .Summary | plainify }}</p>
+            <a href="{{ .RelPermalink }}" class="btn btn-outline btn-sm">{{ $readMore }}</a>
+          </article>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="taxonomy-empty">{{ $emptyText }}</p>
+    {{ end }}
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

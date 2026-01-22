@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{ partial "nav.html" (dict "context" .) }}
+{{ $isEn := eq .Lang "en" }}
+{{ $dateLabel := .Date.Format "02.01.2006" }}
+{{ $readingLabel := "мин чтения" }}
+{{ $backLabel := "Назад к списку статей" }}
+{{ with .Params.dateLabel }}{{ $dateLabel = . }}{{ end }}
+{{ if $isEn }}
+  {{ $readingLabel = "min read" }}
+  {{ $backLabel = "Back to all posts" }}
+{{ end }}
+<header class="article-header">
+  <div class="container-narrow">
+    <div class="article-header-meta">
+      {{ with .Params.category }}
+        <span class="article-tag">{{ . }}</span>
+        <span class="article-meta-separator">•</span>
+      {{ end }}
+      <span>{{ $dateLabel }}</span>
+      <span class="article-meta-separator">•</span>
+      <span>{{ .ReadingTime }} {{ $readingLabel }}</span>
+    </div>
+    <h1 class="article-title">{{ .Title }}</h1>
+    <p class="article-lead">
+      {{ with .Params.lead }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end }}
+    </p>
+  </div>
+</header>
+
+<main class="section-padding section-padding-article">
+  <div class="container-narrow">
+    <a href="{{ "blog" | relLangURL }}" class="back-link">
+      <span class="back-link-icon">
+        <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+      </span>
+      {{ $backLabel }}
+    </a>
+
+    <article class="article-body">
+      {{ .Content }}
+    </article>
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}

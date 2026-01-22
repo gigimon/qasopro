@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>QA Audit and consulting</title>
+    <link>http://localhost:1313/en/</link>
+    <description>Recent content on QA Audit and consulting</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test data management: fast and safe</title>
+      <link>http://localhost:1313/en/blog/test-data-management/</link>
+      <pubDate>Sun, 10 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/blog/test-data-management/</guid>
+      <description>&lt;p&gt;Test data is the foundation of stable checks. If data changes unpredictably, tests fail for the wrong reasons.&lt;/p&gt;&#xA;&lt;p&gt;The best approach is repeatability and transparency: everyone understands where data comes from and who changes it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Audit</title>
+      <link>http://localhost:1313/en/audit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/audit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Consulting</title>
+      <link>http://localhost:1313/en/consulting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/consulting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Contacts</title>
+      <link>http://localhost:1313/en/contacts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/contacts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hiring Support</title>
+      <link>http://localhost:1313/en/recruitment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/recruitment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mentorship</title>
+      <link>http://localhost:1313/en/mentorship/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/en/mentorship/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

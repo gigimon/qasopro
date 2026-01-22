@@ -1,0 +1,30 @@
+{{ $isEn := eq .Lang "en" }} {{ $copy := "© 2025 Олег Сухарев. Все права защищены." }} {{ if $isEn }}{{ $copy = "© 2025 Oleg Sukharev. All rights reserved." }}{{ end }}
+<footer class="footer-minimal">
+    <div class="container footer-inner">
+        <div class="footer-middle footer-middle-start">
+            <div class="footer-copy">{{ $copy }}</div>
+        </div>
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/oleg-suharev-41193644/" aria-label="LinkedIn">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:linkedin"></iconify-icon>
+                </div>
+            </a>
+            <a href="https://t.me/gigimon4ik" aria-label="Telegram">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:send"></iconify-icon>
+                </div>
+            </a>
+            <a href="mailto:gigimon4ik@gmail.com" aria-label="Email">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:mail"></iconify-icon>
+                </div>
+            </a>
+            <a href="https://cal.com/олег-сухарев-7syd7i" aria-label="{{ if $isEn }}Book a call{{ else }}Забронировать звонок{{ end }}">
+                <div class="footer-icon">
+                    <iconify-icon icon="lucide:calendar-clock"></iconify-icon>
+                </div>
+            </a>
+        </div>
+    </div>
+</footer>

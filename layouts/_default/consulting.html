@@ -1,0 +1,122 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ partial "nav.html" (dict "context" .) }}
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ if $isEn }}QA Consulting{{ else }}QA Консультирование{{ end }}</h1>
+    <p class="page-subtitle">
+      {{ if $isEn }}
+        I help build transparent and effective QA processes that support the business instead of slowing it down.
+      {{ else }}
+        Помогаю выстраивать прозрачные и эффективные процессы обеспечения качества, которые работают на бизнес, а не тормозят его.
+      {{ end }}
+    </p>
+  </div>
+</header>
+
+<main class="section-padding">
+  <div class="container-narrow">
+    <div class="content-block">
+      <h2>{{ if $isEn }}A strategic approach to quality{{ else }}Стратегический подход к качеству{{ end }}</h2>
+      <p>
+        {{ if $isEn }}
+          Many companies see the QA team grow while production defects stay the same. Releases slip, and developers and testers speak different languages.
+        {{ else }}
+          Многие компании сталкиваются с ситуацией, когда отдел тестирования растет, а количество багов на проде не уменьшается. Релизы затягиваются, а разработчики и тестировщики говорят на разных языках.
+        {{ end }}
+      </p>
+      <p>
+        {{ if $isEn }}
+          My role is not just to "fix testing", but to embed a quality culture across every stage of product development.
+        {{ else }}
+          Моя задача как консультанта — не просто "наладить тестирование", а интегрировать культуру качества в каждый этап разработки продукта.
+        {{ end }}
+      </p>
+    </div>
+
+    <div class="content-block">
+      <h2>{{ if $isEn }}What the service includes{{ else }}Что входит в услугу{{ end }}</h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}QA strategy design{{ else }}Разработка QA-стратегии{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                Define goals, quality metrics, and tools that fit your product.
+              {{ else }}
+                Определение целей, метрик качества и инструментов для их достижения с учетом специфики вашего продукта.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}Tooling and stack selection{{ else }}Выбор технологического стека{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                Choose automation tools, TMS, and bug tracking that match your team.
+              {{ else }}
+                Помощь в выборе инструментов для автоматизации, TMS и баг-трекинга, которые подойдут вашей команде.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}Process setup (CI/CD){{ else }}Настройка процессов (CI/CD){{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                Integrate automated tests into pipelines, set quality gates, and speed up feedback.
+              {{ else }}
+                Внедрение автотестов в пайплайны, настройка Quality Gates и ускорение обратной связи для разработчиков.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
+          </div>
+          <div class="feature-text">
+            <strong>{{ if $isEn }}Test model optimization{{ else }}Оптимизация тестовой модели{{ end }}</strong>
+            <span>
+              {{ if $isEn }}
+                Move from manual regression to a balanced testing pyramid.
+              {{ else }}
+                Переход от ручного регресса к сбалансированной пирамиде тестирования.
+              {{ end }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>{{ if $isEn }}Ready to discuss your project?{{ else }}Готовы обсудить ваш проект?{{ end }}</h3>
+      <p>
+        {{ if $isEn }}
+          Book a free 30-minute intro call to see if we are a good fit.
+        {{ else }}
+          Запишитесь на бесплатную 30-минутную вводную встречу, чтобы понять, подходим ли мы друг другу.
+        {{ end }}
+      </p>
+      <a href="https://cal.com/олег-сухарев-7syd7i" class="btn btn-primary">
+        {{ if $isEn }}Book a consultation{{ else }}Записаться на консультацию{{ end }}
+      </a>
+    </div>
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}
