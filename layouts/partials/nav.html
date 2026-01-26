@@ -7,6 +7,7 @@
 {{ $mentorship := "mentorship" | relLangURL }}
 {{ $recruitment := "recruitment" | relLangURL }}
 {{ $blog := "blog" | relLangURL }}
+{{ $about := "about" | relLangURL }}
 {{ $contacts := "contacts" | relLangURL }}
 {{ $isBlog := hasPrefix $current $blog }}
 {{ $isEn := eq $ctx.Lang "en" }}
@@ -18,6 +19,7 @@
 {{ $labelMentorship := "Менторство" }}
 {{ $labelRecruitment := "Помощь в найме" }}
 {{ $labelBlog := "Блог" }}
+{{ $labelAbout := "Обо мне" }}
 {{ $labelContacts := "Контакты" }}
 {{ $langLabel := "Переключатель языка" }}
 {{ if $isEn }}
@@ -29,6 +31,7 @@
   {{ $labelMentorship = "Mentorship" }}
   {{ $labelRecruitment = "Hiring Support" }}
   {{ $labelBlog = "Blog" }}
+  {{ $labelAbout = "About" }}
   {{ $labelContacts = "Contacts" }}
   {{ $langLabel = "Language switcher" }}
 {{ end }}
@@ -42,6 +45,7 @@
     <a href="{{ $mentorship }}" class="nav-item{{ if eq $current $mentorship }} active{{ end }}">{{ $labelMentorship }}</a>
     <a href="{{ $recruitment }}" class="nav-item{{ if eq $current $recruitment }} active{{ end }}">{{ $labelRecruitment }}</a>
     <a href="{{ $blog }}" class="nav-item{{ if $isBlog }} active{{ end }}">{{ $labelBlog }}</a>
+    <a href="{{ $about }}" class="nav-item{{ if eq $current $about }} active{{ end }}">{{ $labelAbout }}</a>
     <a href="{{ $contacts }}" class="nav-item{{ if eq $current $contacts }} active{{ end }}">{{ $labelContacts }}</a>
   </div>
   <div class="nav-actions">

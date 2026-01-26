@@ -439,6 +439,33 @@ a {
   font-size: 16px;
 }
 
+.about-list {
+  margin: 12px 0 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.about-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+.about-list li:last-child {
+  margin-bottom: 0;
+}
+
+.about-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: inherit;
+}
+
 .cta-box {
   background: var(--secondary);
   padding: 48px;

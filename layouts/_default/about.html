@@ -1,0 +1,126 @@
+{{ define "main" }}
+{{ $isEn := eq .Lang "en" }}
+{{ partial "nav.html" (dict "context" .) }}
+<header class="page-header">
+  <div class="container">
+    <h1 class="page-title">{{ if $isEn }}About me{{ else }}Обо мне{{ end }}</h1>
+    <p class="page-subtitle">
+      {{ if $isEn }}Career story, leadership experience, and core expertise.{{ else }}Карьерный путь, лидерский опыт и ключевые компетенции.{{ end }}
+    </p>
+  </div>
+</header>
+
+<main class="section-padding">
+  <div class="container-narrow">
+    <div class="content-block">
+      <h2>{{ if $isEn }}About{{ else }}О себе{{ end }}</h2>
+      <p>
+        {{ if $isEn }}My name is Oleg Sukharev. I've been in IT for over 15 years and help teams make products more stable, releases more predictable, and processes more efficient.{{ else }}Меня зовут Олег Сухарев. Я в IT более 15 лет и помогаю командам делать продукт стабильнее, релизы — предсказуемее, а процессы — эффективнее.{{ end }}
+      </p>
+      <p>
+        {{ if $isEn }}I started my career in the technical support team of a hosting provider, where I built a strong engineering foundation: networking, server administration, operations, and an understanding of how systems behave “in the wild.”{{ else }}Карьеру начинал в технической поддержке хостинг-провайдера, где получил сильную инженерную базу: сети, администрирование серверов, эксплуатация и понимание того, как системы ведут себя «в бою».{{ end }}
+      </p>
+    </div>
+
+    <div class="content-block">
+      <h2>{{ if $isEn }}Career milestones{{ else }}Карьерные вехи{{ end }}</h2>
+      <div class="service-list">
+        <div class="service-item">
+          <div class="service-icon-box">
+            <iconify-icon icon="lucide:clipboard-check"></iconify-icon>
+          </div>
+          <div class="service-info">
+            <h3>{{ if $isEn }}Since 2011 — QA, Scalr{{ else }}С 2011 года — QA, Scalr{{ end }}</h3>
+            <p>
+              {{ if $isEn }}Over 10 years I grew to QA Lead: built the QA function, formed and developed teams (manual + automation) up to 15 people, and introduced practices that improved quality and delivery speed. In parallel I consulted small companies, helping them set up processes, strengthen hiring, and build teams aligned with business goals.{{ else }}С 2011 года работаю в QA. <br/>В компании Scalr за 10 лет вырос до QA Lead: выстроил QA с нуля, сформировал и развивал команды (manual + automation) до 15 человек, внедрял практики, которые улучшали качество и скорость поставки. Параллельно консультировал небольшие компании: помогал настраивать процессы, усиливать найм и строить команды под задачи бизнеса.{{ end }}
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon-box">
+            <iconify-icon icon="lucide:shield-check"></iconify-icon>
+          </div>
+          <div class="service-info">
+            <h3>{{ if $isEn }}Since 2021 — QA Lead, NeonLabs{{ else }}С 2021 года — QA Lead, NeonLabs{{ end }}</h3>
+            <p>
+              {{ if $isEn }}Built a team of strong testers for a technically complex product — a new blockchain with high requirements for reliability, security, and performance.{{ else }}С 2021 года — QA Lead в NeonLabs, где сформировал команду сильных тестировщиков для технически сложного продукта — разработка нового блокчейна (высокие требования к надежности, безопасности и производительности).{{ end }}
+            </p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <div class="service-icon-box">
+            <iconify-icon icon="lucide:briefcase"></iconify-icon>
+          </div>
+          <div class="service-info">
+            <h3>{{ if $isEn }}Since 2024 — Head of Engineering{{ else }}С 2024 года — Head of Engineering{{ end }}</h3>
+            <p>
+              {{ if $isEn }}I manage the engineering organization, improve development processes, increase team throughput, and reduce time-to-market without sacrificing quality.{{ else }}С 2024 года — Head of Engineering: управляю инженерной организацией, улучшаю процессы разработки, повышаю throughput команд и сокращаю time-to-market без потери качества.{{ end }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h2>{{ if $isEn }}Expertise and core competencies{{ else }}Экспертиза и ключевые компетенции{{ end }}</h2>
+      <div class="feature-list feature-list-loose">
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:code-2"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>{{ if $isEn }}Technical foundation and languages{{ else }}Техническая база и языки{{ end }}</strong>
+            <ul class="about-list">
+              <li>{{ if $isEn }}Python, JavaScript/TypeScript, Go — for building testing tools, automated tests, and engineering utilities.{{ else }}Python, JavaScript/TypeScript, Go — для разработки инструментов тестирования, автотестов и инженерных утилит.{{ end }}</li>
+              <li>{{ if $isEn }}Deep understanding of networking, operating systems, client-server architectures, and modern infrastructure services.{{ else }}Глубокое понимание сетевых технологий, ОС, клиент-серверных архитектур и современных инфраструктурных сервисов.{{ end }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>{{ if $isEn }}Testing and product quality{{ else }}Тестирование и качество продукта{{ end }}</strong>
+            <ul class="about-list">
+              <li>{{ if $isEn }}Design and implementation of testing at all levels: unit, API, integration, UI/e2e, load/performance.{{ else }}Проектирование и внедрение тестирования на всех уровнях: unit, API, интеграционное, UI/e2e, нагрузочное/производительность.{{ end }}</li>
+              <li>{{ if $isEn }}Testing projects of any complexity — from classic web/service solutions to high-load and distributed systems.{{ else }}Тестирование проектов любой сложности — от классических web/service решений до высоконагруженных и распределенных систем.{{ end }}</li>
+              <li>{{ if $isEn }}Testing strategy: quality goals, risk-based approach, readiness criteria, metrics, coverage, test pyramid, CI/CD approach.{{ else }}Построение стратегии тестирования: цели качества, риск-ориентированный подход, критерии готовности, метрики, покрытие, тест-пирамида, подход к CI/CD.{{ end }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:search"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>{{ if $isEn }}Diagnostics and root cause analysis{{ else }}Диагностика и поиск первопричин{{ end }}</strong>
+            <ul class="about-list">
+              <li>{{ if $isEn }}Strong engineering diagnostics: quickly localize issues, find root causes, and help the team turn “not reproducible” bugs into concrete technical causes and fixes.{{ else }}Сильная инженерная «диагностика»: быстро локализую проблему, нахожу root cause, помогаю команде переводить баги из “не воспроизводится” в конкретные технические причины и фикс.{{ end }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-item feature-item-loose">
+          <div class="feature-icon">
+            <iconify-icon icon="lucide:users"></iconify-icon>
+          </div>
+          <div class="feature-text feature-text-large">
+            <strong>{{ if $isEn }}Teams, processes, and leadership{{ else }}Команды, процессы и управление{{ end }}</strong>
+            <ul class="about-list">
+              <li>{{ if $isEn }}Building QA teams for product needs: hiring, onboarding, organizing structure (manual/automation/SDET, by domains, by streams), competency growth.{{ else }}Построение QA-команд под задачи продукта: найм, онбординг, организация структуры (manual/automation/SDET, по доменам, по потокам), развитие компетенций.{{ end }}</li>
+              <li>{{ if $isEn }}Mentoring and growth for leads: setting expectations, career tracks, higher responsibility and autonomy.{{ else }}Менторство и рост лидов: выстраивание ожиданий, карьерные треки, повышение уровня ответственности и автономности.{{ end }}</li>
+              <li>{{ if $isEn }}Improving processes within QA and cross-functionally (Dev, Product, DevOps): shorter feedback loops, higher transparency, better requirements quality, and more stable releases.{{ else }}Улучшение процессов внутри QA и кросс-функционально (Dev, Product, DevOps): сокращение цикла обратной связи, повышение прозрачности, качество требований, стабильность релизов.{{ end }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}
